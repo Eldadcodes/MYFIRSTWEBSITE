@@ -12,7 +12,7 @@
     <p id="fact">Click the button to reveal a new health fact!</p>
     <div class="button-row">
       <button id="newFactButton" type="button">Show Another Fact <span class="emoji">✨</span></button>
-      <button id="resetButton" type="button">Reset Fact <span class="emoji">🔄</span></button>
+      <button id="resetButton" class="hidden" type="button">Reset Fact <span class="emoji">♻️</span></button>
     </div>
     <div class="footer">Fun health facts for kids, powered by AI 🤖</div>
   </div>
@@ -74,6 +74,9 @@
     button.addEventListener('click', function() {
       button.classList.add('clicked');
       setTimeout(() => button.classList.remove('clicked'), 600);
+      if (resetButton.classList.contains('hidden')) {
+        resetButton.classList.remove('hidden');
+      }
       showRandomFact();
     });
 
