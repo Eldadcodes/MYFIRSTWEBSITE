@@ -94,7 +94,17 @@ button:hover {
   box-shadow: 0 15px 30px rgba(255, 107, 157, 0.4);
 }
 
-.footer {
+.button-row {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer {
   margin-top: 2rem;
   font-size: 1rem;
   opacity: 0.8;

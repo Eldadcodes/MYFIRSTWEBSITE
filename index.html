@@ -8,9 +8,12 @@
 </head>
 <body>
   <div class="card">
-    <h1>Fun AI-Powered Health Facts for Kids! <span class="emoji">🤖🩺🎉</span></h1>
+    <h1>Medical Fun Facts (For Kids Using AI) <span class="emoji">🤖🩺🎉</span></h1>
     <p id="fact">Click the button to reveal a new health fact!</p>
-    <button id="newFactButton" type="button">Show Another Fact <span class="emoji">✨</span></button>
+    <div class="button-row">
+      <button id="newFactButton" type="button">Show Another Fact <span class="emoji">✨</span></button>
+      <button id="resetButton" type="button">Reset Fact <span class="emoji">🔄</span></button>
+    </div>
     <div class="footer">Fun health facts for kids, powered by AI 🤖</div>
   </div>
 
@@ -40,6 +43,8 @@
 
     const factElement = document.getElementById('fact');
     const button = document.getElementById('newFactButton');
+    const resetButton = document.getElementById('resetButton');
+    const initialMessage = 'Click the button to reveal a new health fact!';
 
     function getRandomFact() {
       const index = Math.floor(Math.random() * facts.length);
@@ -56,10 +61,26 @@
       }, 250);
     }
 
+    function resetFact() {
+      factElement.style.opacity = '0';
+      factElement.style.transform = 'translateY(10px)';
+      setTimeout(() => {
+        factElement.textContent = initialMessage;
+        factElement.style.opacity = '1';
+        factElement.style.transform = 'translateY(0)';
+      }, 250);
+    }
+
     button.addEventListener('click', function() {
       button.classList.add('clicked');
       setTimeout(() => button.classList.remove('clicked'), 600);
       showRandomFact();
+    });
+
+    resetButton.addEventListener('click', function() {
+      resetButton.classList.add('clicked');
+      setTimeout(() => resetButton.classList.remove('clicked'), 600);
+      resetFact();
     });
 
     window.addEventListener('DOMContentLoaded', showRandomFact);
