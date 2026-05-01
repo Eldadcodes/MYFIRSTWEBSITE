@@ -47,10 +47,20 @@
     }
 
     function showRandomFact() {
-      factElement.textContent = getRandomFact();
+      factElement.style.opacity = '0';
+      factElement.style.transform = 'translateY(10px)';
+      setTimeout(() => {
+        factElement.textContent = getRandomFact();
+        factElement.style.opacity = '1';
+        factElement.style.transform = 'translateY(0)';
+      }, 250);
     }
 
-    button.addEventListener('click', showRandomFact);
+    button.addEventListener('click', function() {
+      button.classList.add('clicked');
+      setTimeout(() => button.classList.remove('clicked'), 600);
+      showRandomFact();
+    });
 
     window.addEventListener('DOMContentLoaded', showRandomFact);
   </script>
