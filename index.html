@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Fun Facts</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="card">
+    <h1>Random Fun Facts</h1>
+    <p id="fact">Click the button to reveal a new fun fact!</p>
+    <button id="newFactButton" type="button">Show Another Fact</button>
+    <div class="footer">Fun facts generated locally in your browser.</div>
+  </div>
+
+  <script>
+    const facts = [
+      "A group of flamingos is called a flamboyance.",
+      "Octopuses have three hearts and blue blood.",
+      "Bananas are berries, but strawberries are not.",
+      "Honey never spoils — archaeologists have found edible honey in ancient tombs.",
+      "A day on Venus is longer than a year on Venus.",
+      "There are more stars in the universe than grains of sand on all the world’s beaches.",
+      "A single strand of spider silk is stronger than steel of the same width.",
+      "Wombat poop is cube-shaped.",
+      "The Eiffel Tower can be 15 cm taller during the summer.",
+      "Some turtles can breathe through their butts.",
+      "A sneeze can travel at more than 100 miles per hour.",
+      "There are more possible chess games than atoms in the observable universe.",
+      "A small child could swim through the veins of a blue whale.",
+      "The inventor of the Pringles can is buried in one.",
+      "You can hear a blue whale's heartbeat from more than 2 miles away.",
+    ];
+
+    const factElement = document.getElementById('fact');
+    const button = document.getElementById('newFactButton');
+
+    function getRandomFact() {
+      const index = Math.floor(Math.random() * facts.length);
+      return facts[index];
+    }
+
+    function showRandomFact() {
+      factElement.textContent = getRandomFact();
+    }
+
+    button.addEventListener('click', showRandomFact);
+
+    window.addEventListener('DOMContentLoaded', showRandomFact);
+  </script>
+</body>
+</html>
