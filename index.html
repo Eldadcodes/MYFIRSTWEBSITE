@@ -86,7 +86,10 @@
       resetFact();
     });
 
-    window.addEventListener('DOMContentLoaded', showRandomFact);
+    window.addEventListener('DOMContentLoaded', () => {
+      resetButton.classList.add('hidden');
+      showRandomFact();
+    });
   </script>
 </body>
 </html>
